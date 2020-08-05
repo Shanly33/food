@@ -1,13 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'antd/dist/antd.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter as Router,Route,Redirect,Switch}from 'react-router-dom'
+import {Provider} from 'react-redux'
+import { mainRouter } from './routers';
+import store from './store'
+import * as Api from './api'
 
+
+React.Component.prototype.$Api = Api
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <Router>
+      <Switch>
+        <Route path='/app' render={routeProps=><App {...routeProps}></App>}></Route>
+        {
+          mainRouter.map(route=>{
+            return <Route key={route.path} {...route}/>
+          })
+        }
+        <Redirect exact from='/' to='/app/home'></Redirect>
+        <Redirect to='/404'></Redirect>
+      </Switch>
+    </Router>
+  </Provider>
+  ,
   document.getElementById('root')
 );
 

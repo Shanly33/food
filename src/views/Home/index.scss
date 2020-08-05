@@ -1,0 +1,40 @@
+.side{
+    background-color: #f0f2f5;
+}
+.part1{
+    height: 130px;
+    margin-top: 35px;
+    background-color: #90c322;
+}
+.part2{
+    height: 130px;
+    margin-top: 35px;
+    background-color: #90c322;
+}
+.part3{
+    height: 130px;
+    margin-top: 35px;
+    background-color: #90c322;
+}
+.title{
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+.ant-menu-item-selected {
+    color: #90c322;
+}
+.ant-menu-item::after{
+    border-right: 3px solid #90c322 !important;
+}
+html {
+    --antd-wave-shadow-color: #90c322 !important;
+    --scroll-bar: 0;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #F0FFF0;
+}
+.ant-menu-item:hover, .ant-menu-item-active{
+    color:#90c322;
+}
